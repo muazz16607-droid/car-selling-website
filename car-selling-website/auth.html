@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register | Premium Cars TZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="./index.html">Premium Cars TZ</a>
+      <button class="menu-toggle" aria-label="Open menu">Menu</button>
+      <div class="nav-links">
+        <a href="./cars.html">Browse Cars</a>
+        <a href="./sell.html">Sell Car</a>
+        <a class="active" href="./auth.html#login">Login</a>
+        <a class="btn btn-accent" href="./auth.html#register">Register</a>
+        <a data-admin-link="true" href="./admin.html">Admin</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container section">
+    <div class="auth-shell">
+      <div class="tabs">
+        <a id="tab-login" href="#login">Login</a>
+        <a id="tab-register" href="#register">Register</a>
+      </div>
+      <form id="login-form" class="form-grid narrow">
+        <h2>Welcome Back</h2>
+        <p class="demo-note">
+          Admin accounts (only 3):<br />
+          1) <b>admin1@drivenest.com</b> / <b>admin123</b><br />
+          2) <b>admin2@drivenest.com</b> / <b>admin456</b><br />
+          3) <b>admin3@drivenest.com</b> / <b>admin789</b>
+        </p>
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button class="btn btn-dark" type="submit">Login</button>
+      </form>
+      <form id="register-form" class="form-grid narrow hidden">
+        <h2>Create Account</h2>
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button class="btn btn-dark" type="submit">Register</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p>(c) 2026 Premium Cars TZ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>
+
+
+
+

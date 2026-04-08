@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Cars | Premium Cars TZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="./index.html">Premium Cars TZ</a>
+      <button class="menu-toggle" aria-label="Open menu">Menu</button>
+      <div class="nav-links">
+        <a class="active" href="./cars.html">Browse Cars</a>
+        <a href="./sell.html">Sell Car</a>
+        <a href="./auth.html#login">Login</a>
+        <a class="btn btn-accent" href="./auth.html#register">Register</a>
+        <a data-admin-link="true" href="./admin.html">Admin</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>Marketplace Inventory</h1>
+      <p>Filter by make, fuel type, and budget.</p>
+    </div>
+
+    <section class="filters">
+      <input id="search-input" type="text" placeholder="Search make or model..." />
+      <select id="fuel-filter">
+        <option value="all">All Fuel Types</option>
+        <option value="Gasoline">Gasoline</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Electric">Electric</option>
+        <option value="Diesel">Diesel</option>
+      </select>
+      <select id="sort-filter">
+        <option value="default">Sort By</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="year-desc">Year: Newest</option>
+      </select>
+    </section>
+
+    <section id="cars-grid" class="card-grid mt-24"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p>(c) 2026 Premium Cars TZ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>
+
+
+
+
