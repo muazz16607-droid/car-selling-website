@@ -490,3 +490,134 @@ setupSellForm()
 setupAuthPage()
 renderContactPage()
 setupAdminPage()
+
+/* =========================
+   LEVEL 2 FEATURES
+========================= */
+
+let favorites = JSON.parse(localStorage.getItem("favorites") || "[]")
+let compareList = []
+
+const saveFavorites = () => {
+  localStorage.setItem("favorites", JSON.stringify(favorites))
+}
+
+const toggleFavorite = (id) => {
+  if (favorites.includes(id)) {
+    favorites = favorites.filter(f => f !== id)
+  } else {
+    favorites.push(id)
+  }
+  saveFavorites()
+  renderFeatured()
+}
+
+const toggleCompare = (id) => {
+  if (compareList.includes(id)) {
+    compareList = compareList.filter(c => c !== id)
+  } else {
+    if (compareList.length < 3) compareList.push(id)
+  }
+  renderFeatured()
+}
+
+/* =========================
+   UPDATED CARD TEMPLATE
+========================= */
+
+const cardTemplateV2 = (car) => `
+  <article class="car-card">
+
+    <img src="${car.image_url}" alt="${car.make}" />
+
+    <div class="car-card-body">
+
+      <h3 class="car-title">${car.make} ${car.model}</h3>
+
+      <div class="meta-row">
+        <span class="price">$${car.price}</span>
+        <span class="badge">${car.fuel}</span>
+      </div>
+
+      <div class="card-actions">
+        <a class="btn btn-dark" href="./car.html?id=${car.id}">View</a>
+
+        <button class="btn btn-light" onclick="toggleFavorite(${car.id})">
+          ${favorites.includes(car.id) ? "💔 Remove" : "❤️ Save"}
+        </button>
+
+        <button class="btn btn-light" onclick="toggleCompare(${car.id})">
+          ${compareList.includes(car.id) ? "✔ Added" : "⚖ Compare"}
+        </button>
+      </div>
+
+    </div>
+  </article>
+`
+
+/* =========================
+   FEATURED RENDER (LEVEL 2)
+========================= */
+
+const renderFeaturedV2 = () => {
+  const holder = document.getElementById("featured-cars")
+  if (!holder) return
+
+  let cars = getCars()
+
+  const search = document.getElementById("search-input")?.value?.toLowerCase() || ""
+  const fuel = document.getElementById("fuel-filter")?.value || "all"
+  const sort = document.getElementById("sort-filter")?.value || "default"
+
+  if (search) {
+    cars = cars.filter(c =>
+      (c.make + " " + c.model).toLowerCase().includes(search)
+    )
+  }
+
+  if (fuel !== "all") {
+    cars = cars.filter(c => c.fuel === fuel)
+  }
+
+  if (sort === "price-asc") cars.sort((a,b)=>a.price-b.price)
+  if (sort === "price-desc") cars.sort((a,b)=>b.price-a.price)
+  if (sort === "year-desc") cars.sort((a,b)=>b.year-a.year)
+
+  holder.innerHTML = cars.slice(0, 6).map(cardTemplateV2).join("")
+}
+
+/* =========================
+   EVENTS
+========================= */
+
+document.addEventListener("input", (e) => {
+  if (
+    e.target.id === "search-input" ||
+    e.target.id === "fuel-filter" ||
+    e.target.id === "sort-filter"
+  ) {
+    renderFeaturedV2()
+  }
+})
+
+document.getElementById("clear-filters")?.addEventListener("click", () => {
+  document.getElementById("search-input").value = ""
+  document.getElementById("fuel-filter").value = "all"
+  document.getElementById("sort-filter").value = "default"
+  renderFeaturedV2()
+})
+
+document.getElementById("view-favorites")?.addEventListener("click", () => {
+  const cars = getCars().filter(c => favorites.includes(c.id))
+  document.getElementById("featured-cars").innerHTML =
+    cars.map(cardTemplateV2).join("") || "<p>No favorites yet.</p>"
+})
+
+document.getElementById("view-compare")?.addEventListener("click", () => {
+  const cars = getCars().filter(c => compareList.includes(c.id))
+  document.getElementById("featured-cars").innerHTML =
+    cars.map(cardTemplateV2).join("") || "<p>Select cars to compare.</p>"
+})
+
+/* replace old render */
+renderFeatured = renderFeaturedV2
