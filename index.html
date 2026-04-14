@@ -1,56 +1,131 @@
-<section class="hero">
-  <div class="hero-visual"></div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Cars TZ | Marketplace</title>
 
-  <div class="container hero-content">
-    <p class="kicker">Verified Marketplace • Premium Listings</p>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet">
 
-    <h1>Find Your Next Car in Seconds</h1>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <p>
-      Search, compare, and save cars from trusted sellers.
-      Built for speed and smart decisions.
-    </p>
+<body>
 
-    <!-- 🔥 LEVEL 2 SEARCH BAR -->
-    <div class="search-bar">
-      <input id="search-input" type="text" placeholder="Search make or model..." />
+  <!-- ================= NAVBAR ================= -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="./index.html">Premium Cars TZ</a>
 
-      <select id="fuel-filter">
-        <option value="all">All Fuel</option>
-        <option value="Gasoline">Gasoline</option>
-        <option value="Hybrid">Hybrid</option>
-        <option value="Electric">Electric</option>
-        <option value="Diesel">Diesel</option>
-      </select>
+      <button class="menu-toggle">Menu</button>
 
-      <select id="sort-filter">
-        <option value="default">Sort</option>
-        <option value="price-asc">Price ↑</option>
-        <option value="price-desc">Price ↓</option>
-        <option value="year-desc">Newest</option>
-      </select>
+      <div class="nav-links">
+        <a href="./cars.html">Browse Cars</a>
+        <a href="./sell.html">Sell Car</a>
+        <a href="./auth.html#login">Login</a>
+        <a class="btn btn-accent" href="./auth.html#register">Register</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-      <button class="btn btn-accent" id="clear-filters">Reset</button>
+  <!-- ================= HERO ================= -->
+  <main>
+
+    <section class="hero">
+      <div class="hero-visual"></div>
+
+      <div class="container hero-content">
+        <p class="kicker">Verified Marketplace • Premium Listings</p>
+
+        <h1>Find Your Next Car in Seconds</h1>
+
+        <p>
+          Search, compare, and save cars from trusted sellers.
+          Built for speed and smart decisions.
+        </p>
+
+        <!-- ================= SEARCH BAR (LEVEL 2) ================= -->
+        <div class="search-bar">
+
+          <input id="search-input" type="text" placeholder="Search make or model..." />
+
+          <select id="fuel-filter">
+            <option value="all">All Fuel</option>
+            <option value="Gasoline">Gasoline</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Electric">Electric</option>
+            <option value="Diesel">Diesel</option>
+          </select>
+
+          <select id="sort-filter">
+            <option value="default">Sort</option>
+            <option value="price-asc">Price ↑</option>
+            <option value="price-desc">Price ↓</option>
+            <option value="year-desc">Newest</option>
+          </select>
+
+          <button class="btn btn-accent" id="clear-filters">Reset</button>
+
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="./cars.html">Browse Inventory</a>
+          <a class="btn btn-light" href="./sell.html">Sell Your Car</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= FEATURED ================= -->
+    <section class="container section">
+
+      <div class="section-head">
+        <h2>Featured Cars</h2>
+
+        <div class="mini-actions">
+          <button id="view-favorites" class="btn btn-light">❤️ Favorites</button>
+          <button id="view-compare" class="btn btn-light">⚖️ Compare</button>
+        </div>
+      </div>
+
+      <div id="featured-cars" class="card-grid"></div>
+
+    </section>
+
+    <!-- VALUE SECTION -->
+    <section class="container value-strip">
+      <article>
+        <h3>Verified Listings</h3>
+        <p>All cars are checked for authenticity and quality.</p>
+      </article>
+
+      <article>
+        <h3>Smart Search</h3>
+        <p>Filter cars by price, fuel, and model instantly.</p>
+      </article>
+
+      <article>
+        <h3>Direct Contact</h3>
+        <p>Connect directly with sellers without middlemen.</p>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p>© 2026 Premium Cars TZ. All rights reserved.</p>
     </div>
+  </footer>
 
-    <div class="hero-actions">
-      <a class="btn btn-dark" href="./cars.html">Browse Inventory</a>
-      <a class="btn btn-light" href="./sell.html">Sell Your Car</a>
-    </div>
-  </div>
-</section>
+  <script src="app.js"></script>
 
-<section class="container section">
-  <div class="section-head">
-    <h2>Featured Cars</h2>
-    <div class="mini-actions">
-      <button id="view-favorites" class="btn btn-light">❤️ Favorites</button>
-      <button id="view-compare" class="btn btn-light">⚖️ Compare</button>
-    </div>
-  </div>
-
-  <div id="featured-cars" class="card-grid"></div>
-</section>
+</body>
+</html>
 
 
 
