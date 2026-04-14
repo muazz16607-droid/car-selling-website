@@ -1,80 +1,56 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Premium Cars TZ | Car Marketplace</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <nav class="nav container">
-      <a class="brand" href="./index.html">Premium Cars TZ</a>
-      <button class="menu-toggle" aria-label="Open menu">Menu</button>
-      <div class="nav-links">
-        <a href="./cars.html">Browse Cars</a>
-        <a href="./sell.html">Sell Car</a>
-        <a href="./auth.html#login">Login</a>
-        <a class="btn btn-accent" href="./auth.html#register">Register</a>
-        <a data-admin-link="true" href="./admin.html">Admin</a>
-        <a href="./contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+<section class="hero">
+  <div class="hero-visual"></div>
 
-  <main>
-    <section class="hero">
-      <div class="hero-visual"></div>
-      <div class="container hero-content">
-        <p class="kicker">Trusted by 20,000+ drivers</p>
-        <h1>Buy and Sell Cars Without the Guesswork</h1>
-        <p>
-          Explore verified listings, compare smart pricing, and connect directly with sellers.
-          Built for speed, transparency, and confidence.
-        </p>
-        <div class="hero-actions ">
-          <a class="btn btn-dark" href="./cars.html">Explore Inventory</a>
-          <a class="btn btn-light" href="./sell.html">List Your Car</a>
-        </div>
-      </div>
-    </section>
+  <div class="container hero-content">
+    <p class="kicker">Verified Marketplace • Premium Listings</p>
 
-    <section class="container section">
-      <div class="section-head">
-        <h2>Featured Cars</h2>
-        <a href="./cars.html">See all listings</a>
-      </div>
-      <div id="featured-cars" class="card-grid"></div>
-    </section>
+    <h1>Find Your Next Car in Seconds</h1>
 
-    <section class="container value-strip">
-      <article>
-        <h3>Fair Pricing</h3>
-        <p>Every listing is benchmarked against current market rates.</p>
-      </article>
-      <article>
-        <h3>Fast Listing</h3>
-        <p>Post your car in under 2 minutes with all key details.</p>
-      </article>
-      <article>
-        <h3>Direct Contact</h3>
-        <p>Connect instantly with buyers and sellers, no middleman delays.</p>
-      </article>
-    </section>
-  </main>
+    <p>
+      Search, compare, and save cars from trusted sellers.
+      Built for speed and smart decisions.
+    </p>
 
-  <footer class="footer">
-    <div class="container footer-wrap">
-      <p>(c) 2026 Premium Cars TZ. All rights reserved.</p>
+    <!-- 🔥 LEVEL 2 SEARCH BAR -->
+    <div class="search-bar">
+      <input id="search-input" type="text" placeholder="Search make or model..." />
+
+      <select id="fuel-filter">
+        <option value="all">All Fuel</option>
+        <option value="Gasoline">Gasoline</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Electric">Electric</option>
+        <option value="Diesel">Diesel</option>
+      </select>
+
+      <select id="sort-filter">
+        <option value="default">Sort</option>
+        <option value="price-asc">Price ↑</option>
+        <option value="price-desc">Price ↓</option>
+        <option value="year-desc">Newest</option>
+      </select>
+
+      <button class="btn btn-accent" id="clear-filters">Reset</button>
     </div>
-  </footer>
 
-  <script src="app.js"></script>
-</body>
-</html>
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="./cars.html">Browse Inventory</a>
+      <a class="btn btn-light" href="./sell.html">Sell Your Car</a>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="section-head">
+    <h2>Featured Cars</h2>
+    <div class="mini-actions">
+      <button id="view-favorites" class="btn btn-light">❤️ Favorites</button>
+      <button id="view-compare" class="btn btn-light">⚖️ Compare</button>
+    </div>
+  </div>
+
+  <div id="featured-cars" class="card-grid"></div>
+</section>
 
 
 
